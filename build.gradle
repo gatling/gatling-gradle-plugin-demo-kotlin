@@ -1,7 +1,7 @@
 plugins {
     id 'org.jetbrains.kotlin.jvm' version '1.6.0'
     // The following line allows to load io.gatling.gradle plugin and directly apply it
-    id 'io.gatling.gradle' version '3.7.1'
+    id 'io.gatling.gradle' version '3.7.2'
 }
 
 gatling {
