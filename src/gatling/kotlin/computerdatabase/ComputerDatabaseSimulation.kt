@@ -41,7 +41,7 @@ class ComputerDatabaseSimulation : Simulation() {
 
   // repeat is a loop resolved at RUNTIME
   val browse =
-    // Note how we force the counter name so we can reuse it
+    // Note how we force the counter name, so we can reuse it
     repeat(4, "i").on(
       exec(
         http("Page #{i}").get("/computers?p=#{i}")
