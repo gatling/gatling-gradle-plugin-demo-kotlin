@@ -10,7 +10,7 @@ and [Scala](https://github.com/gatling/gatling-gradle-plugin-demo-scala).
 It includes:
 
 * Gradle Wrapper, so you don't need to install Gradle (a JDK must be installed and $JAVA_HOME configured)
-* minimal `build.gradle` leveraging Gradle wrapper
+* minimal `build.gradle.kts` leveraging Gradle wrapper
 * latest version of `io.gatling.gradle` plugin applied
 * sample [Simulation](https://gatling.io/docs/gatling/reference/current/general/concepts/#simulation) class,
 demonstrating sufficient Gatling functionality
