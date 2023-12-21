@@ -30,7 +30,7 @@ class ComputerDatabaseSimulation : Simulation() {
       http("Select")
         .get("#{computerUrl}")
         .check(status().shouldBe(200)),
-      .pause(1)
+      pause(1)
     )
 
   // repeat is a loop resolved at RUNTIME
