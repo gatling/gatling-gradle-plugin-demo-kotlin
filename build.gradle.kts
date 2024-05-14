@@ -1,5 +1,5 @@
 plugins {
-    kotlin("jvm") version "1.9.23"
+    kotlin("jvm") version "1.9.24"
     kotlin("plugin.allopen") version "1.9.23"
 
     // The following line allows to load io.gatling.gradle plugin and directly apply it
