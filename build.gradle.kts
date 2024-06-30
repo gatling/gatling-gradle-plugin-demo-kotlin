@@ -3,7 +3,7 @@ plugins {
     kotlin("plugin.allopen") version "1.9.24"
 
     // The following line allows to load io.gatling.gradle plugin and directly apply it
-    id("io.gatling.gradle") version "3.11.4"
+    id("io.gatling.gradle") version "3.11.5"
 }
 
 gatling {
