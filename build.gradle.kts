@@ -1,17 +1,15 @@
+// build.gradle.kts
 plugins {
-    kotlin("jvm") version "2.2.21"
-    kotlin("plugin.allopen") version "2.2.21"
-
-    // The following line allows to load io.gatling.gradle plugin and directly apply it
-    id("io.gatling.gradle") version "3.14.9"
+    kotlin("jvm")
+    kotlin("plugin.allopen")
+    id("io.gatling.gradle")
 }
 
-gatling {
-    enterprise.closureOf<Any> {
-        // Enterprise Cloud (https://cloud.gatling.io/) configuration reference: https://docs.gatling.io/reference/integrations/build-tools/gradle-plugin/
-    }
+repositories { mavenCentral() }
+
+dependencies {
+    // For code in src/gatling/... use the gatling source set configuration
+    gatlingImplementation("com.michael-bull.kotlin-inline-logger:kotlin-inline-logger-jvm:1.0.6")
 }
 
-repositories {
-    mavenCentral()
-}
+gatling { }

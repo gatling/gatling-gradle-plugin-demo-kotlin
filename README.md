@@ -1,17 +1,46 @@
-Gatling plugin for Gradle - Kotlin demo project
+# core-experience-performance-tests
+
+Project for measuring API performance and experimenting with load. Uses Gatling.
+Intended to be run locally - against our staging environment.
+When running anymore than a couple of hundred requests, consider notifying down stream teams.
 ===============================================
 
-A simple showcase of a Gradle project using the Gatling plugin for Gradle. Refer to the plugin documentation
-[on the Gatling website](https://docs.gatling.io/reference/integrations/build-tools/gradle-plugin/) for usage.
-
-This project is written in Kotlin, others are available for [Java](https://github.com/gatling/gatling-gradle-plugin-demo-java)
-and [Scala](https://github.com/gatling/gatling-gradle-plugin-demo-scala).
-
-It includes:
+## Includes:
 
 * Gradle Wrapper, so you don't need to install Gradle (a JDK must be installed and $JAVA_HOME configured)
 * minimal `build.gradle.kts` leveraging Gradle wrapper
 * latest version of `io.gatling.gradle` plugin applied
-* sample [Simulation](https://docs.gatling.io/reference/glossary/#simulation) class,
-demonstrating sufficient Gatling functionality
 * proper source file layout
+
+## Requirements:
+
+* Java 21
+* AI_COACH_CLIENT_SECRET env var set
+  from <https://vault.internal.thriveglobal.engineering/ui/vault/secrets/services/kv/staging%2Fai-coach%2Fai-coach%2Fsecrets/details?version=9>
+
+### Data Source:
+
+```bash
+SELECT DISTINCT user_id
+FROM user_intentions
+WHERE intention IS NOT NULL
+  AND TRIM(intention) <> ''
+  AND TRIM(intention) <> '<redacted>'
+LIMIT 100;
+```
+
+, and put into the users.csv file
+
+### Data Source Cleanup:
+
+```bash
+DELETE
+FROM daily_task_list
+WHERE thrive_user_id IN (...)
+```
+
+## Running simulations
+
+```bash
+./gradlew gatlingRun --simulation com.thriveglobal.perf.DailyTaskListSimulation
+```
