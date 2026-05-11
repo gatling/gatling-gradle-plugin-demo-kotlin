@@ -3,7 +3,7 @@ plugins {
     kotlin("plugin.allopen") version "2.3.21"
 
     // The following line allows to load io.gatling.gradle plugin and directly apply it
-    id("io.gatling.gradle") version "3.15.0.1"
+    id("io.gatling.gradle") version "3.15.0.2"
 }
 
 tasks.withType(JavaCompile::class) {
